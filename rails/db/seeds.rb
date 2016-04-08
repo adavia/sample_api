@@ -8,6 +8,6 @@
 
 50.times do |i|
   Post.create!(
-    content: Faker::Lorem.paragraphs
+    content: Faker::Lorem.paragraph(2)
   )
 end
