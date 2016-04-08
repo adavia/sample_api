@@ -7,6 +7,8 @@ gem 'rails', '4.2.5'
 gem 'pg', '~> 0.15'
 # Add API serializers
 gem 'active_model_serializers'
+# Use fake data
+gem 'faker'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
