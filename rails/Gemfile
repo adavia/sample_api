@@ -9,6 +9,8 @@ gem 'pg', '~> 0.15'
 gem 'active_model_serializers'
 # Use fake data
 gem 'faker'
+# Add user authentication
+gem 'devise'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   namespace 'api' do
+    devise_for :users, 
+                singular: 'user', 
+                module: 'api', 
+                controllers: { sessions: 'api/sessions' }
     resources :posts
   end
 

@@ -1,0 +1,8 @@
+<h1>Post list</h1>
+
+{{#each model as |post|}}
+  <p>
+    {{post.content}}
+    <small>{{post.created_at}}</small>
+  </p>
+{{/each}}
