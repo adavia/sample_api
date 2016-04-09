@@ -1,0 +1,33 @@
+<form {{action "register" user on="submit"}}>
+  <div class="form-group">
+    <label for="email">Email</label>
+    {{input value=user.email 
+      placeholder="Email" 
+      id="email" 
+      class="form-control"}}
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    {{input value=user.password 
+      type="password" 
+      placeholder="Password" 
+      id="password" 
+      class="form-control"}}
+  </div>
+
+  <div class="form-group">
+    <label for="passwordConfirmation">Password Confirmation</label>
+    {{input value=user.passwordConfirmation 
+      type="password" 
+      placeholder="Password Confirmation" 
+      id="passwordConfirmation" 
+      class="form-control"}}
+  </div>
+  <button type="submit" class="btn btn-default">Login</button>
+</form>
+<br>
+
+{{#if responseMessage}}
+  <div class="alert alert-danger">{{responseMessage}}</div>
+{{/if}}

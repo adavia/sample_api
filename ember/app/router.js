@@ -10,6 +10,7 @@ Router.map(function() {
 
   this.route('users', function() {
     this.route('sign-in');
+    this.route('sign-up');
   });
 });
 

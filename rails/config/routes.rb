@@ -6,7 +6,11 @@ Rails.application.routes.draw do
     devise_for :users, 
                 singular: 'user', 
                 module: 'api', 
-                controllers: { sessions: 'api/sessions' }
+                controllers: { 
+                  registrations: 'api/registrations',
+                  sessions: 'api/sessions' 
+                }
+
     resources :posts
   end
 
