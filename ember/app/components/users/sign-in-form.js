@@ -5,7 +5,7 @@ const { service } = Ember.inject;
 export default Ember.Component.extend({
   session: service('session'),
 
-  responseMessage: false,
+  message: false,
   isProcessing: false,
 
   actions: {
@@ -18,7 +18,7 @@ export default Ember.Component.extend({
           this.set('isProcessing', false);
         }).catch((reason) => {
           this.set('isProcessing', false);
-          this.set('responseMessage', reason.error || reason);
+          this.set('message', reason.error || reason);
         });
     }
   }

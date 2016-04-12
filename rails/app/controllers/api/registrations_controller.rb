@@ -6,11 +6,9 @@ class API::RegistrationsController < Devise::RegistrationsController
  
     if resource.save
       if resource.active_for_authentication?
-        render json: {user: {response: "User has been created succesfully!"}},
-          status: :created
+        render json: {user: resource}, status: :created
       else
-        render json: {user: {response: "User has been created succesfully!"}}, 
-          status: :created
+        render json: {user: resource}, status: :created
       end
     else
       clean_up_passwords resource

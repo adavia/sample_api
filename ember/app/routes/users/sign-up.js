@@ -10,25 +10,22 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
     saveUser(newUser) {
       newUser.save().then((resp) => {
         this.controller.set('model', this.store.createRecord('user'));
-        console.log(resp);
+        this.controller.set('message', `Thank you ${resp.get('email')}! 
+          Your datails have been saved successfully`);
         this.controller.set('errors', []);
-      }).catch((reason) => {
-        if (Array.isArray(reason.errors)) {
-          let errors = {};
-          reason.errors.forEach((error) => {
-            errors[`error-${error.field}`] = error.messages[0];
-          });
-          this.controller.set('errors', errors);
-        } else {
-          alert('Something went wrong');
-        }
+      }).catch((resp) => {
+        let errors = {};
+        resp.errors.forEach((error) => {
+          errors[`error-${error.field}`] = error.messages[0];
+        });
+        this.controller.set('errors', errors);  
       });
     },
 
     willTransition() {
       this.controller.get('model').rollbackAttributes();
 
-      this.controller.set('responseMessage', false);
+      this.controller.set('message', false);
       this.controller.set('errors', []);
     }
   }
