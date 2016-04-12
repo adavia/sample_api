@@ -8,8 +8,10 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
 
   actions: {
     saveUser(newUser) {
-      newUser.save().then(() => {
-        this.get('model').rollback();
+      newUser.save().then((resp) => {
+        this.controller.set('model', this.store.createRecord('user'));
+        console.log(resp);
+        this.controller.set('errors', []);
       }).catch((reason) => {
         if (Array.isArray(reason.errors)) {
           let errors = {};
@@ -18,9 +20,16 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
           });
           this.controller.set('errors', errors);
         } else {
-          console.log(reason)
+          alert('Something went wrong');
         }
       });
+    },
+
+    willTransition() {
+      this.controller.get('model').rollbackAttributes();
+
+      this.controller.set('responseMessage', false);
+      this.controller.set('errors', []);
     }
   }
 });

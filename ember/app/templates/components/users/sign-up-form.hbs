@@ -1,36 +1,63 @@
 <form {{action "register" user on="submit"}}>
-  <div class="form-group">
-    <label for="email">Email</label>
+  <div class="form-group {{if errors.error-email "has-error has-feedback"}}">
+    <label class="control-label" for="email">Email</label>
     {{input value=user.email 
       placeholder="Email" 
       id="email" 
       class="form-control"}}
-    <small>{{errors.error-email}}</small>
+    <small class="help-block text-danger">
+      {{errors.error-email}}
+    </small>
+    {{#if errors.error-email}}
+      <span class="glyphicon glyphicon-remove form-control-feedback" 
+            aria-hidden="true">
+      </span>
+      <span id="emailStatus" 
+            class="sr-only">(error)
+      </span>
+    {{/if}}
   </div>
 
-  <div class="form-group">
-    <label for="password">Password</label>
+  <div class="form-group {{if errors.error-password "has-error has-feedback"}}">
+    <label class="control-label" for="password">Password</label>
     {{input value=user.password 
       type="password" 
       placeholder="Password" 
       id="password" 
       class="form-control"}}
-    <small>{{errors.error-password}}</small>
+    <small class="help-block text-danger">
+      {{errors.error-password}}
+    </small>
+    {{#if errors.error-password}}
+      <span class="glyphicon glyphicon-remove form-control-feedback" 
+            aria-hidden="true">
+      </span>
+      <span id="emailStatus" 
+            class="sr-only">(error)
+      </span>
+    {{/if}}
   </div>
 
-  <div class="form-group">
-    <label for="passwordConfirmation">Password Confirmation</label>
+  <div class="form-group {{if errors.error-password_confirmation "has-error has-feedback"}}">
+    <label class="control-label" for="passwordConfirmation">Password Confirmation</label>
     {{input value=user.password_confirmation 
       type="password" 
       placeholder="Password Confirmation" 
       id="passwordConfirmation" 
       class="form-control"}}
-    <small>{{errors.error-password_confirmation}}</small>
+    <small class="help-block text-danger">
+      {{errors.error-password_confirmation}}
+    </small>
+    {{#if errors.error-password_confirmation}}
+      <span class="glyphicon glyphicon-remove form-control-feedback" 
+            aria-hidden="true">
+      </span>
+      <span id="emailStatus" 
+            class="sr-only">(error)
+      </span>
+    {{/if}}
   </div>
-  <button type="submit" 
-          class="btn btn-default">
-          Submit
-  </button>
+  <button type="submit" class="btn btn-default">Submit</button>
 </form>
 <br>
 

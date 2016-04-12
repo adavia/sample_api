@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  validates :password_confirmation, presence: true
+
   # Generate a token for this user if one does not already exist
   def ensure_authentication_token
     if authentication_token.blank?
