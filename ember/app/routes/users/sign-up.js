@@ -7,8 +7,20 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
   },
 
   actions: {
-    saveUser(newUser){
-      newUser.save();
+    saveUser(newUser) {
+      newUser.save().then(() => {
+        this.get('model').rollback();
+      }).catch((reason) => {
+        if (Array.isArray(reason.errors)) {
+          let errors = {};
+          reason.errors.forEach((error) => {
+            errors[`error-${error.field}`] = error.messages[0];
+          });
+          this.controller.set('errors', errors);
+        } else {
+          console.log(reason)
+        }
+      });
     }
   }
 });

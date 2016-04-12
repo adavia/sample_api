@@ -21,5 +21,5 @@ class API::ApplicationController < ApplicationController
     unless authenticated
       render json: { error: 'No authorization provided.' }, status: :unauthorized
     end
-  end 
+  end
 end

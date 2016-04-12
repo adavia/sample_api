@@ -2,6 +2,10 @@
 
 <div class="row">
   <div class="col-md-6">
-    {{users.sign-up-form user=model action='saveUser'}}
+    {{users.sign-up-form 
+      user=model 
+      errors=errors 
+      responseMessage=responseMessage 
+      action='saveUser'}}
   </div>
 </div>
