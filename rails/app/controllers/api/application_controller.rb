@@ -14,12 +14,18 @@ class API::ApplicationController < ApplicationController
         @current_user = user
         sign_in user, store: false
       else
-        render json: { error: 'Invalid authorization.' }, status: :unauthorized
+        render json: { 
+          error: 'Invalid authorization.' 
+        }, 
+        status: :unauthorized
       end
     end
 
     unless authenticated
-      render json: { error: 'No authorization provided.' }, status: :unauthorized
+      render json: { 
+        error: 'No authorization provided.' 
+      }, 
+      status: :unauthorized
     end
   end
 end

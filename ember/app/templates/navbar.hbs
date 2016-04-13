@@ -23,7 +23,16 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         {{#if session.isAuthenticated}}
-          <li><a href="" {{action 'logout'}}>Logout</a></li>
+          <li>
+            <a href>
+              {{session.currentUser.email}}
+            </a>
+          </li>
+          <li>
+            <a href {{action 'logout'}}>
+              Logout
+            </a>
+          </li>
         {{else}}
           {{#nav-link-to 'users.sign-in'}}
             Sign in
