@@ -1,8 +1,33 @@
-<h2>Post list</h2>
+<div class="row">
+  <div class="col-md-6">
+    <form {{action "savePost" post on="submit"}}>
+      <div class="form-group {{if errors.error-content "has-error has-feedback"}}">
+        {{textarea value=post.content
+          rows=3
+          placeholder="What are you thinking?" 
+          id="content" 
+          class="form-control"}}
+        <small class="help-block text-danger">
+          {{errors.error-content}}
+        </small>
+        {{#if errors.error-content}}
+          <span class="glyphicon glyphicon-remove form-control-feedback" 
+                aria-hidden="true">
+          </span>
+          <span id="contentStatus" 
+                class="sr-only">(error)
+          </span>
+        {{/if}}
+      </div>
 
-{{#each model as |post|}}
-  <p>
-    {{post.content}}
-    <small>{{post.created_at}}</small>
-  </p>
-{{/each}}
+      <button type="submit" 
+              class="btn btn-sm btn-success">
+              Create new post
+      </button>
+    </form>
+
+    {{#each posts as |p|}}
+      <p>{{p.content}}</p>
+    {{/each}}
+  </div>
+</div>

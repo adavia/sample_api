@@ -6,8 +6,19 @@ class API::PostsController < API::ApplicationController
     render json: @posts
   end
 
-  def show
-    @post = Post.find(params[:id])
-    render json: @post
+  def create
+    @post = current_user.posts.build(post_params)
+    if @post.save
+      render json: @post, status: :created
+    else
+      render json: ErrorSerializer.serialize(@post.errors), 
+        status: :unprocessable_entity 
+    end
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:content)
   end
 end

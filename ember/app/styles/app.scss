@@ -4,10 +4,19 @@
 
 body {
   padding-top: 60px;
+  background-color: #f5f8fa;
+}
+
+a {
+  cursor: pointer;
 }
 
 h1, h2, h3, h4, h5 {
   font-weight: 900;
+}
+
+.navbar-default {
+  border-bottom: 1px solid rgba(0,0,0,0.15);
 }
 
 .navbar-form {

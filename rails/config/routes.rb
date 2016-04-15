@@ -11,8 +11,8 @@ Rails.application.routes.draw do
                   sessions: 'api/sessions' 
                 }
 
-    resources :posts, only: [:index]
-    get "users/me", to: "users#me"
+    resources :posts, only: [:index, :create]
+    get "users/profile", to: "users#profile"
   end
 
   # You can have the root of your site routed with "root"

@@ -20,9 +20,7 @@ module.exports = function(environment) {
   };
 
   ENV['ember-simple-auth'] = {
-    authorizer: 'authorizer:devise',
-    authenticationRoute: 'users.sign-in',
-    crossOriginWhitelist: ['*']
+    authenticationRoute: 'users.sign-in'
   }
 
   if (environment === 'development') {

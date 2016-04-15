@@ -1,7 +1,7 @@
 class API::UsersController < API::ApplicationController
   before_action :authenticate_user_from_token!
   
-  def me
+  def profile
     render json: current_user
   end
 end
