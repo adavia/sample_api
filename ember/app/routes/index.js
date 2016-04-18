@@ -12,14 +12,15 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   },
 
   setupController(controller, model) {
-    controller.set("posts", model.posts);
-    controller.set("post", model.post);
+    controller.set('posts', model.posts);
+    controller.set('post', model.post);
   },
 
   actions: {
     savePost(newPost) {
       newPost.save().then((resp) => {
         this.controller.set('post', this.store.createRecord('post'));
+        this.controller.set('errors', null);
       }).catch((resp) => {
         let errors = {};
         resp.errors.forEach((error) => {
@@ -31,7 +32,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
     willTransition() {
       this.controller.get('post').rollbackAttributes();
-      this.controller.set('errors', []);
+      this.controller.set('errors', null);
     }
   }
 });

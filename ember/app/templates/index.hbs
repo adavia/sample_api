@@ -1,33 +1,46 @@
 <div class="row">
   <div class="col-md-6">
-    <form {{action "savePost" post on="submit"}}>
-      <div class="form-group {{if errors.error-content "has-error has-feedback"}}">
-        {{textarea value=post.content
-          rows=3
-          placeholder="What are you thinking?" 
-          id="content" 
-          class="form-control"}}
-        <small class="help-block text-danger">
-          {{errors.error-content}}
-        </small>
-        {{#if errors.error-content}}
-          <span class="glyphicon glyphicon-remove form-control-feedback" 
-                aria-hidden="true">
-          </span>
-          <span id="contentStatus" 
-                class="sr-only">(error)
-          </span>
-        {{/if}}
+    <section class="main-wrapper">
+      <div class="post-box">
+        <form {{action "savePost" post on="submit"}}>
+          <div class="form-group {{if errors.error-content "has-error has-feedback"}}">
+            {{textarea value=post.content
+              rows=3
+              placeholder="What are you thinking?" 
+              id="content" 
+              class="form-control"}}
+            <small class="help-block text-danger">
+              {{errors.error-content}}
+            </small>
+            {{#if errors.error-content}}
+              <span class="glyphicon glyphicon-remove form-control-feedback" 
+                    aria-hidden="true">
+              </span>
+              <span id="contentStatus" 
+                    class="sr-only">(error)
+              </span>
+            {{/if}}
+          </div>
+          <div class="clearfix">
+            <div class="pull-right">
+              <button type="submit" 
+                      class="btn btn-sm btn-success">
+                      Create new post
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
-
-      <button type="submit" 
-              class="btn btn-sm btn-success">
-              Create new post
-      </button>
-    </form>
-
-    {{#each posts as |p|}}
-      <p>{{p.content}}</p>
-    {{/each}}
+      
+      {{#each filterPosts as |post|}}  
+        <article class="wrapper">
+          <p>{{post.content}}</p>
+        </article>
+      {{else}}
+        <article class="wrapper">
+          <p>THERE ARE NO CURRENT POSTS..</p>
+        </article>
+      {{/each}}
+    </section>
   </div>
 </div>

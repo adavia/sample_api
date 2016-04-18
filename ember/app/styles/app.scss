@@ -37,3 +37,21 @@ form {
     font-weight: 600;
   }
 }
+
+.main-wrapper {
+  background-color: #fff;
+  border: 1px solid #e1e8ed;
+  .wrapper:last-child {
+    border-bottom: none;
+  }
+}
+
+.post-box {
+  @extend .wrapper;
+  background-color: #F5F5F5;
+}
+
+.wrapper {
+  border-bottom: 1px solid #e1e8ed;
+  padding: 15px;
+}

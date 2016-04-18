@@ -2,7 +2,7 @@ class API::PostsController < API::ApplicationController
   before_action :authenticate_user_from_token!
   
   def index
-    @posts = Post.all
+    @posts = current_user.posts
     render json: @posts
   end
 

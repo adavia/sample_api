@@ -12,7 +12,7 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
         this.controller.set('model', this.store.createRecord('user'));
         this.controller.set('message', `Thank you ${resp.get('email')}! 
           Your datails have been saved successfully`);
-        this.controller.set('errors', []);
+        this.controller.set('errors', null);
       }).catch((resp) => {
         let errors = {};
         resp.errors.forEach((error) => {
@@ -26,7 +26,7 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
       this.controller.get('model').rollbackAttributes();
 
       this.controller.set('message', false);
-      this.controller.set('errors', []);
+      this.controller.set('errors', null);
     }
   }
 });
