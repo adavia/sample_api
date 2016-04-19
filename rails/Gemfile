@@ -11,6 +11,8 @@ gem 'active_model_serializers', '~> 0.9'
 gem 'faker'
 # Add user authentication
 gem 'devise'
+# Add file uploading
+gem 'carrierwave'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

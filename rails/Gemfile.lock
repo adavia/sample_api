@@ -44,6 +44,11 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
     byebug (8.2.3)
+    carrierwave (0.11.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     concurrent-ruby (1.0.1)
     debug_inspector (0.0.2)
     devise (3.5.6)
@@ -134,6 +139,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers (~> 0.9)
   byebug
+  carrierwave
   devise
   faker
   pg (~> 0.15)

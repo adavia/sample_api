@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  file: MyString
+  default: false
+  imageable_id: 
+  imageable_type: Imageable
+
+two:
+  file: MyString
+  default: false
+  imageable_id: 
+  imageable_type: Imageable
