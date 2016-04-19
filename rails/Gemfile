@@ -6,7 +6,7 @@ gem 'rails', '4.2.5'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
 # Add API serializers
-gem 'active_model_serializers'
+gem 'active_model_serializers', '~> 0.9'
 # Use fake data
 gem 'faker'
 # Add user authentication

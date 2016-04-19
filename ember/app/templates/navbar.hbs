@@ -24,7 +24,7 @@
       <ul class="nav navbar-nav navbar-right">
         {{#if session.isAuthenticated}}
           <li>
-            <a>{{session.currentUser.email}}</a>
+            <a>{{sessionAccount.account.email}}</a>
           </li>
           <li>
             <a {{action 'logout'}}>Logout</a>

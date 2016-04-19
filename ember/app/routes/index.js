@@ -18,7 +18,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
   actions: {
     savePost(newPost) {
-      newPost.save().then((resp) => {
+      newPost.save().then(() => {
         this.controller.set('post', this.store.createRecord('post'));
         this.controller.set('errors', null);
       }).catch((resp) => {

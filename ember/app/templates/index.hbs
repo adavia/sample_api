@@ -35,6 +35,7 @@
       {{#each filterPosts as |post|}}  
         <article class="wrapper">
           <p>{{post.content}}</p>
+          <small>{{post.user.email}}</small>
         </article>
       {{else}}
         <article class="wrapper">
