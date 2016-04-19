@@ -2,40 +2,70 @@
   <div class="col-md-6">
     <section class="main-wrapper">
       <div class="post-box">
-        <form {{action "savePost" post on="submit"}}>
-          <div class="form-group {{if errors.error-content "has-error has-feedback"}}">
-            {{textarea value=post.content
-              rows=3
-              placeholder="What are you thinking?" 
-              id="content" 
-              class="form-control"}}
-            <small class="help-block text-danger">
-              {{errors.error-content}}
-            </small>
-            {{#if errors.error-content}}
-              <span class="glyphicon glyphicon-remove form-control-feedback" 
-                    aria-hidden="true">
-              </span>
-              <span id="contentStatus" 
-                    class="sr-only">(error)
-              </span>
-            {{/if}}
+        <div class="media">
+          <div class="media-left">
+            <a href="#">
+              <img class="media-object img-responsive img-thumbnail"
+                   width="50" 
+                   src="/assets/images/user.png"
+                   alt="user">
+            </a>
           </div>
-          <div class="clearfix">
-            <div class="pull-right">
-              <button type="submit" 
-                      class="btn btn-sm btn-success">
-                      Create new post
-              </button>
-            </div>
+          <div class="media-body">
+            <form {{action "savePost" post on="submit"}}>
+              <div class="form-group {{if errors.error-content "has-error has-feedback"}}">
+                {{textarea value=post.content
+                  rows=3
+                  placeholder="What are you thinking?" 
+                  id="content" 
+                  class="form-control"}}
+                <small class="help-block text-danger">
+                  {{errors.error-content}}
+                </small>
+                {{#if errors.error-content}}
+                  <span class="glyphicon glyphicon-remove form-control-feedback" 
+                        aria-hidden="true">
+                  </span>
+                  <span id="contentStatus" 
+                        class="sr-only">(error)
+                  </span>
+                {{/if}}
+              </div>
+              <div class="clearfix">
+                <div class="pull-right">
+                  <button type="submit" 
+                          class="btn btn-sm btn-success">
+                          Create new post
+                  </button>
+                </div>
+              </div>
+            </form>
           </div>
-        </form>
+        </div>
       </div>
       
       {{#each filterPosts as |post|}}  
         <article class="wrapper">
-          <p>{{post.content}}</p>
-          <small>{{post.user.email}}</small>
+          <div class="media">
+            <div class="media-left">
+              <a href="#">
+                <img class="media-object img-responsive img-thumbnail"
+                   width="40" 
+                   src="/assets/images/user.png"
+                   alt="user">
+              </a>
+            </div>
+            <div class="media-body">
+              <h5 class="media-heading">{{post.user.email}}</h5>
+              <small>
+                {{moment-from-now 
+                  post.created_at 
+                  hideSuffix=true}}
+                  ago
+              </small>
+              <p>{{post.content}}</p>
+            </div>
+          </div>
         </article>
       {{else}}
         <article class="wrapper">
